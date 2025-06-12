@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính chu vi và diện tích hình chữ nhật</title>
+</head>
+<body>
+<h1>Tính chu vi và diện tích hình chữ nhật</h1>
+
+<input id="rong" type="number" oninput="tinhDienTich(); tinhChuVi()" placeholder="Nhập chiều rộng: ">
+<input id="dai" type="number" oninput="tinhDienTich(); tinhChuVi()" placeholder="Nhập chiều dài: ">
+
+<button onclick="tinhDienTich()">Tính diện tích</button>
+<button onclick="tinhChuVi()">Tính chu vi</button>
+
+<p id="dientich"></p>
+<p id="chuvi"></p>
+
+<script>
+    function tinhDienTich() {
+        let rong = parseFloat(document.getElementById('rong').value);
+        let dai = parseFloat(document.getElementById('dai').value);
+        let s = rong * dai;
+        document.getElementById("dientich").innerHTML = "<b>Diện tích: </b>" + s;
+    }
+
+    function tinhChuVi() {
+        let rong = parseFloat(document.getElementById('rong').value);
+        let dai = parseFloat(document.getElementById('dai').value);
+        let p = 2 * (rong + dai);
+        document.getElementById("chuvi").innerHTML = "<b>Chu vi: </b>" + p;
+    }
+</script>
+</body>
+</html>
