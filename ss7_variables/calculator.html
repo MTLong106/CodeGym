@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+  <input type="number" id="number1">
+  <input type="number" id="number2">
+  <br><br>
+
+  <button onclick="calculate('+')">Addition(+)</button>
+  <button onclick="calculate('-')">Subtraction(-)</button>
+  <button onclick="calculate('*')">Multiplication(X)</button>
+  <button onclick="calculate('/')">Division(/)</button>
+
+  <p id="result">Result:</p>
+
+  <script>
+    function calculate(operator) {
+      let num1 = parseFloat(document.getElementById("number1").value);
+      let num2 = parseFloat(document.getElementById("number2").value);
+      let result = 0;
+
+      switch(operator) {
+        case '+':
+          result = num1 + num2;
+          break;
+        case '-':
+          result = num1 - num2;
+          break;
+        case '*':
+          result = num1 * num2;
+          break;
+        case '/':
+          result = num2 !== 0 ? num1 / num2 : 'Không thể chia cho 0';
+          break;
+        default:
+          result = 'Phép toán không hợp lệ';
+      }
+
+      document.getElementById("result").innerText = "Result " + operator + " : " + result;
+    }
+  </script>
+</body>
+</html>
