@@ -5,13 +5,15 @@
     <title>Exercise 7</title>
 </head>
 <body>
-    <p>Tiền cước nội mạng: 1000 / 1 phút</p>
-    <p>Tiền cước ngoại mạng: 2000 / 1 phút</p>
+    <p>Tiền phí nội mạng: 1000 / 1 phút</p>
+    <p>Tiền phí ngoại mạng: 2000 / 1 phút</p>
+    <p>Số phút miễn phí nội mạng: 10 phút</p>
+    <p>Số phút miễn phí ngoại mạng: 20 phút</p>
     <form>
-        <label for = "noiMang">Số phút gọi nội mạng</label>
-        <input type = "number" id = "noiMang" placeholder = "Nhập số phút"><br><br>
-        <label for = "ngoaiMang">Số phút gọi ngoại mạng</label>
-        <input type = "number" id = "ngoaiMang" placeholder = "Nhập số phút"><br><br>
+        <label for = "phutNoiMang">Số phút nội mạng: </label>
+        <input type = "number" id = "phutNoiMang" placeholder = "Nhập số phút"><br><br>
+        <label for = "phutNgoaiMang">Số phút ngoại mạng: </label>
+        <input type = "number" id = "phutNgoaiMang" placeholder = "Nhập số phút"><br><br>
         <button type="button" onclick="tinhTien()">Tính tiền</button>
         <button type="reset" onclick="document.getElementById('ketQua').innerText = ''">Nhập lại</button>
         <p id="ketQua"></p>
@@ -19,10 +21,22 @@
 
     <script>
         function tinhTien(){
-            let noiMang = document.getElementById("noiMang").value;
-            let ngoaiMang = document.getElementById("ngoaiMang").value;
-            let soTien = noiMang * 1000 + ngoaiMang * 2000;
-            document.getElementById("ketQua").innerText = `Số tiền cước: ${soTien}`;
+            const phiNoiMang = 1000;
+            const phiNgoaiMang = 2000;
+            const phutMienPhiNoiMang = 10; // Nội mạng được miễn phí 10p
+            const phutMienPhiNgoaiMang = 20; // Ngoại mạng được miễn phí 20p
+            let phutNoiMang = + document.getElementById("phutNoiMang").value;
+            let phutNgoaiMang = + document.getElementById("phutNgoaiMang").value;
+
+            //Số phút tính phí nội mạng
+            let phutTinhPhiNoiMang = phutNoiMang > phutMienPhiNoiMang ? (phutNoiMang - phutMienPhiNoiMang) : 0;
+
+            //Số phút tính phí ngoaại mạng
+            let phutTinhPhiNgoaiMang = phutNgoaiMang > phutMienPhiNgoaiMang ? (phutNgoaiMang - phutMienPhiNgoaiMang) : 0;
+
+            //Tổng số tiền phí
+            let tongTienPhi = phutTinhPhiNoiMang * phiNoiMang + phutTinhPhiNgoaiMang * phiNgoaiMang;
+            document.getElementById("ketQua").innerText = `Số tiền phí: ${tongTienPhi}`;
         }
     </script>
 </body>
