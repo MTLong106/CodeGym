@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 5</title>
+</head>
+<body>
+<form>
+  <label for = "a">Enter a: </label>
+  <input type = "number" id ="a" placeholder = "Enter a"> (m)<br><br>
+  <label for = "b">Enter b: </label>
+  <input type = "number" id ="b" placeholder = "Enter b"> (m)<br><br>
+  <label for = "surface">Surface: </label>
+  <input type="number" id ="surface" readonly> (m<sup>2</sup>)<br><br> <!--readonly cho phép hiển thị, không cho user nhập dữ liệu-->
+
+  <button type="button" onclick="calculate()">Calculate</button>
+  <button type="reset">Reset</button>
+</form>
+
+<script>
+  function calculate() {
+    let a = parseFloat(document.getElementById("a").value);
+    let b = parseFloat(document.getElementById("b").value);
+    let surface = document.getElementById("surface");
+    if (isNaN(a) || isNaN(b)) {
+      alert("Enter a or b");
+      return;
+    } else if (a <= 0 || b <= 0){
+      alert("Enter a or b greater than 0");
+      return;
+    } else{
+      surface.value = (a * b) / 2;
+    }
+  }
+</script>
+</body>
+</html>

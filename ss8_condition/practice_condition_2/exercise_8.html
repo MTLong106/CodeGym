@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 8</title>
+</head>
+<body>
+<form>
+    <label for = "age">Age : </label>
+    <input type = "number" id ="age" placeholder = "Enter age"><br><br>
+    <label for = "result">Result: </label>
+    <input type = "text" id ="result" readonly><br><br> <!--readonly cho phép hiển thị, không cho user nhập dữ liệu-->
+
+    <button type="button" onclick="isHuman()">Check</button>
+    <button type="reset">Reset</button>
+</form>
+
+<script>
+    function isHuman() {
+        let age = parseFloat(document.getElementById("age").value);
+        let result = document.getElementById("result");
+        if (isNaN(age)) {
+            alert("Enter age");
+            return;
+        } else if (age <= 0 || age > 120){
+            result.value = "Not human";
+        } else{
+            result.value = "Is human";
+        }
+    }
+</script>
+</body>
+</html>

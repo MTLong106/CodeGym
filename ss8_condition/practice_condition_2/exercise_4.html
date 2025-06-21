@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 4</title>
+</head>
+<body>
+<form>
+    <label for = "length">Length : </label>
+    <input type = "number" id ="length" placeholder = "Enter length"> (m)<br><br>
+    <label for = "width">Width : </label>
+    <input type = "number" id ="width" placeholder = "Enter width"> (m)<br><br>
+    <label for = "surface">Surface: </label>
+    <input type="number" id ="surface" readonly> (m<sup>2</sup>)<br><br> <!--readonly cho phép hiển thị, không cho user nhập dữ liệu-->
+
+    <button type="button" onclick="calculate()">Calculate</button>
+    <button type="reset">Reset</button>
+</form>
+
+<script>
+    function calculate() {
+        let length = parseFloat(document.getElementById("length").value);
+        let width = parseFloat(document.getElementById("width").value);
+        let surface = document.getElementById("surface");
+        if (isNaN(length) || isNaN(width)) {
+            alert("Enter length or width");
+            return;
+        } else if (length <= 0 || width <= 0){
+            alert("Enter length or width greater than 0");
+        } else{
+            return;
+            surface.value = length * width;
+        }
+    }
+</script>
+</body>
+</html>

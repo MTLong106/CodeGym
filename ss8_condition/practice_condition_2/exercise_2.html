@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 2</title>
+</head>
+<body>
+<form>
+    <label for = "meter">Meter: </label>
+    <input type = "number" id ="meter" placeholder = "Enter meter"><br><br>
+    <label for = "feet">Feet: </label>
+    <input type="number" id ="feet" readonly><br><br> <!--readonly cho phép hiển thị, không cho user nhập dữ liệu-->
+
+    <button type="button" onclick="convert()">Convert</button>
+    <button type="reset">Reset</button>
+</form>
+
+<script>
+    function convert() {
+        let meter = parseFloat(document.getElementById("meter").value);
+        let feet = document.getElementById("feet");
+        if (isNaN(meter)) {
+            alert("Enter meter");
+            return;
+        } else{
+            feet.value = meter * 3.2808;
+        }
+    }
+</script>
+</body>
+</html>

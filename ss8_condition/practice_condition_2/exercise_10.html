@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 10</title>
+</head>
+
+<style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 4px;
+    text-align: center;
+  }
+</style>
+
+<body>
+<form>
+  <table>
+    <tr>
+      <th colspan="3">Bảng giá tiền điện</th>
+    </tr>
+    <tr>
+      <td>Bậc</td>
+      <td>Số kWh</td>
+      <td>Giá</td>
+    </tr>
+    <tr>
+      <td>Bậc 1</td>
+      <td>0 - 50</td>
+      <td>1500</td>
+    </tr>
+    <tr>
+      <td>Bậc 2</td>
+      <td>51 - 100</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <td>Bậc 3</td>
+      <td>> 100 </td>
+      <td>3500</td>
+    </tr>
+  </table><br>
+
+  <label for = "soDien">Nhập số điện: </label>
+  <input type = "number" id ="soDien" placeholder = "Nhập số điện"><br><br>
+  <label for = "result">Số tiền: </label>
+  <input type = "text" id ="result" readonly><br><br> <!--readonly cho phép hiển thị, không cho user nhập dữ liệu-->
+
+  <button type="button" onclick="calculate()">Tinh tiền</button>
+  <button type="reset">Reset</button>
+</form>
+
+<script>
+  function calculate() {
+    let soDien = parseFloat(document.getElementById("soDien").value);
+    let result = document.getElementById("result");
+    if (isNaN(soDien)) {
+      alert("Enter số điện");
+      return;
+    } else if (soDien > 0 && soDien <= 50){
+      result.value = soDien * 1500;
+    } else if (soDien > 51 && soDien <= 100){
+      result.value = soDien * 1500 + soDien * 2500;
+    } else {
+      result.value = soDien * 1500 + soDien * 2500 + soDien * 3500;
+    }
+  }
+</script>
+</body>
+</html>

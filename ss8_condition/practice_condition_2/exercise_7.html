@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 6</title>
+</head>
+<body>
+<form>
+  <p>Phương trình bậc 2 có dạng: ax<sup>2</sup> + bx + c = 0</p>
+  <label for = "a">Enter a: </label>
+  <input type = "number" id ="a" placeholder = "Enter a"><br><br>
+  <label for = "b">Enter b: </label>
+  <input type = "number" id ="b" placeholder = "Enter b"><br><br>
+  <label for = "c">Enter c: </label>
+  <input type = "number" id ="c" placeholder = "Enter c"><br><br>
+
+  <label for = "result">Result: </label>
+  <input type = "text" id ="result" readonly><br><br> <!--readonly cho phép hiển thị, không cho user nhập dữ liệu-->
+
+  <button type="button" onclick="calculate()">Calculate</button>
+  <button type="reset">Reset</button>
+</form>
+
+<script>
+  function calculate() {
+    let a = parseFloat(document.getElementById("a").value);
+    let b = parseFloat(document.getElementById("b").value);
+    let c = parseFloat(document.getElementById("c").value);
+    let result = document.getElementById("result");
+
+    if (isNaN(a) || isNaN(b) || isNaN(c)) {
+      alert("Enter number for a, b, c");
+      return;
+    } else if (a === 0){
+        if (b === 0) {
+          if (c === 0) {
+            result.value = "Vô số nghiệm";
+          } else {
+            result.value = "Vô nghiệm";
+          }
+        }
+        else{
+          result.value = -c / b;
+        }
+    } else {
+      let delta = b * b - 4 * a * c;
+      if (delta < 0) {
+        result.value = "Vô nghiệm";
+      } else if (delta === 0) {
+        result.value = -b / (2 * a);
+      } else {
+        let sqrtDelta = Math.sqrt(delta);
+        let x1 = (-b + sqrtDelta) / (2 * a);
+        let x2 = (-b - sqrtDelta) / (2 * a);
+        result.value = x1.toFixed(2) + ", " + x2.toFixed(2);
+      }
+    }
+  }
+</script>
+</body>
+</html>
