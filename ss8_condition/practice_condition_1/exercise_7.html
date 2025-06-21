@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 7</title>
+</head>
+<body>
+    <p>Tiền cước nội mạng: 1000 / 1 phút</p>
+    <p>Tiền cước ngoại mạng: 2000 / 1 phút</p>
+    <form>
+        <label for = "noiMang">Số phút gọi nội mạng</label>
+        <input type = "number" id = "noiMang" placeholder = "Nhập số phút"><br><br>
+        <label for = "ngoaiMang">Số phút gọi ngoại mạng</label>
+        <input type = "number" id = "ngoaiMang" placeholder = "Nhập số phút"><br><br>
+        <button type="button" onclick="tinhTien()">Tính tiền</button>
+        <button type="reset" onclick="document.getElementById('ketQua').innerText = ''">Nhập lại</button>
+        <p id="ketQua"></p>
+    </form>
+
+    <script>
+        function tinhTien(){
+            let noiMang = document.getElementById("noiMang").value;
+            let ngoaiMang = document.getElementById("ngoaiMang").value;
+            let soTien = noiMang * 1000 + ngoaiMang * 2000;
+            document.getElementById("ketQua").innerText = `Số tiền cước: ${soTien}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check month</title>
+</head>
+<body>
+  <input type = "number" name = "month" id = "month" placeholder = "Enter your month">
+  <button onclick="checkMonth()">Check month</button>
+  <p id="result"></p>
+  <script>
+    function checkMonth() {
+      let month = document.getElementById('month').value;
+      switch (month) {
+        case '1':
+        case '3':
+        case '5':
+        case '7':
+        case '8':
+        case '10':
+        case '12':
+          document.getElementById('result').innerHTML = `Month ${month} is 31 days`;
+          break;
+        case '2':
+          document.getElementById('result').innerHTML = `Month ${month} is 28 or 29 days`;
+          break;
+        case '4':
+        case '6':
+        case '9':
+        case '11':
+          document.getElementById('result').innerHTML = `Month ${month} is 30 days`;
+          break;
+        default:
+          document.getElementById('result').innerHTML = `Invalid month`;
+      }
+    }
+  </script>
+</body>
+</html>

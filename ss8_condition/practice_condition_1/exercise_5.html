@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 5</title>
+</head>
+<body>
+  <form>
+    <label for = "testScore">Điểm kiểm tra</label>
+    <input type = "number" id = "testScore" placeholder = "Nhập điểm kiểm tra"><br><br>
+    <label for = "midExamScore">Điểm giữa kì</label>
+    <input type = "number" id = "midExamScore" placeholder = "Nhập điểm giữa kì"><br><br>
+    <label for = "finalExamScore">Điểm cuối kì</label>
+    <input type = "number" id = "finalExamScore" placeholder = "Nhập điểm cuối kì"><br><br>
+    <button type = "button" onclick="checkRank()">Kiểm tra</button>
+    <button type = "reset">Nhập lại</button>
+    <p id="result"></p>
+  </form>
+
+  <script>
+    function checkRank() {
+      let testScore = + document.getElementById('testScore').value;
+      let midExamScore = + document.getElementById('midExamScore').value;
+      let finalExamScore = + document.getElementById('finalExamScore').value;
+      let averageScore = (testScore + midExamScore * 2 + finalExamScore * 3) / 6;
+
+      if (averageScore >= 8) {
+        document.getElementById("result").innerHTML = 'Xếp loại: giỏi';
+      } else if (averageScore >= 6.5) {
+        document.getElementById("result").innerHTML = 'Xếp loại: khá';
+      } else if (averageScore >= 5){
+        document.getElementById("result").innerHTML = 'Xếp loại: trung bình';
+      } else{
+        document.getElementById("result").innerHTML = 'Xếp loại: yếu';
+      }
+    }
+  </script>
+</body>
+</html>

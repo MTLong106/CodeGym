@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="4"><input id="window" type="text"></td>
+        </tr>
+        <tr>
+            <td><input type="button" onclick="nhap(this.value)" value="1"></td>
+            <td><input type="button" onclick="nhap(this.value)" value="2"></td>
+            <td><input type="button" onclick="nhap(this.value)" value="3"></td>
+            <td><input type="button" onclick="nhap(this.value)" value="+"></td>
+        </tr>
+        <tr>
+            <td><input type="button" onclick="nhap(this.value)" value="4"></td>
+            <td><input type="button" onclick="nhap(this.value)" value="5"></td>
+            <td><input type="button" onclick="nhap(this.value)" value="6"></td>
+            <td><input type="button" onclick="nhap(this.value)" value="-"></td>
+        </tr>
+        <tr>
+            <td><input type="button" onclick="nhap(this.value)" value="7"></td>
+            <td><input type="button" onclick="nhap(this.value)" value="8"></td>
+            <td><input type="button" onclick="nhap(this.value)" value="9"></td>
+            <td><input type="button" onclick="nhap(this.value)" value="*"></td>
+        </tr>
+        <tr>
+            <td><input onclick="reset()" type="button" value="c"></td>
+            <td><input type="button" onclick="nhap(this.value)" value="0"></td>
+            <td><input onclick="bang()" type="button" value="="></td>
+            <td><input type="button" onclick="nhap(this.value)" value="/"></td>
+        </tr>
+    </table>
+    <script>
+        function nhap(kyTu){
+            document.getElementById("window").value +=kyTu;
+        }
+        function bang(){
+            let string =  document.getElementById("window").value;
+            let result = eval(string);
+            document.getElementById("window").value = result;
+        }
+        function reset(){
+            document.getElementById("window").value = "";
+        }
+    </script>
+</body>
+</html>
