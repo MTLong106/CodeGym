@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng cửu chương</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 4px 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <script>
+        for (let i = 1; i <= 9; i++) {
+            document.write("<tr>");
+            for (let j = 2; j <= 9; j++) {
+                document.write(`<td>${j} x ${i} = ${j * i}</td>`);
+            }
+            document.write("</tr>");
+        }
+    </script>
+</table>
+
+</body>
+</html>

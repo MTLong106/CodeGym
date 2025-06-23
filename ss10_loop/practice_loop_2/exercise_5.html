@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 5</title>
+</head>
+<body>
+  <label for = "tienGui">Số tiền gửi: </label>
+  <input type = "number" id = "tienGui"><br>
+  <label for = "soThangGui">Số tháng gửi: </label>
+  <input type = "number" id = "soThangGui"><br>
+  <label for = "laiSuat">Lãi suất: </label>
+  <input type = "number" id = "laiSuat"><br>
+  <button type = "button" onclick="tinhTien()">Tính tiền</button>
+  <p id = "result"></p>
+
+  <script>
+    function tinhTien() {
+      let tienGui = + document.getElementById("tienGui").value;
+      let soThangGui = + document.getElementById("soThangGui").value;
+      let laiSuat = + document.getElementById("laiSuat").value;
+      let tongTien = tienGui;
+      if (isNaN(tienGui) || isNaN(soThangGui) || isNaN(laiSuat) || tienGui <= 0 || soThangGui <= 0 || laiSuat < 0) {
+        alert("Nhập lại");
+        return;
+      }
+
+      for (let i = 1; i <= soThangGui; i++) {
+        tongTien += tongTien * laiSuat / 100;
+      }
+      document.getElementById("result").innerText = tongTien.toFixed(2).toString();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 3</title>
+</head>
+<body>
+<pre id="output1"></pre>
+<pre id="output2"></pre>
+<pre id="output3"></pre>
+<pre id="output4"></pre>
+<script>
+  let n = 5;
+  let result1 = "";
+  let result2 = "";
+  let result3 = "";
+  let result4 = "";
+
+  // Tam giác vuông 1
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= i; j++) {
+      result1 += "*";
+    }
+    result1 += "\n";
+    document.getElementById("output1").innerText = result1;
+  }
+
+  // Tam giác vuông 2
+  for (let i = n; i >= 1; i--) {
+    for (let j = 1; j <= i; j++) {
+      result2 += "*";
+    }
+    result2 += "\n";
+    document.getElementById("output2").innerText = result2;
+  }
+
+  // Tam giác vuông 3
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= n - i; j++) {
+      result3 += " ";
+    }
+    for (let j = 1; j <= i; j++) {
+      result3 += "*";
+    }
+    result3 += "\n";
+    document.getElementById("output3").innerText = result3;
+  }
+
+  // Tam giác vuông 4
+  for (let i = n; i >= 1; i--) {
+    for (let j = 1; j <= n - i; j++) {
+      result4 += " ";
+    }
+    for (let j = 1; j <= i; j++) {
+      result4 += "*";
+    }
+    result4 += "\n";
+    document.getElementById("output4").innerText = result4;
+  }
+
+</script>
+</body>
+</html>

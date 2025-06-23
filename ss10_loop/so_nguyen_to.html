@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In ra số nguyên tố</title>
+</head>
+<body>
+    <label for="number">Số lượng số nguyên tố cần in: </label>
+    <input type="number" id="number">
+    <button type="button" onclick="printPrime()">Kiểm tra</button>
+    <p id="result"></p>
+
+<script>
+    function isPrime(n) {
+        if (n < 2) {
+            return false; //0 và 1 không phải số nguyên tố
+        }
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i === 0) { //nếu n có 1 ước số khác thì ko phải số nguyên tố
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function printPrime() {
+        let number = parseInt(document.getElementById("number").value);
+        let result = document.getElementById("result");
+
+        let count = 0;
+        let n = 2;
+
+        while (count < number) {
+            if (isPrime(n)) {
+                result.innerHTML += n + " ";
+                count++;
+            }
+            n++;
+        }
+    }
+</script>
+</body>
+</html>

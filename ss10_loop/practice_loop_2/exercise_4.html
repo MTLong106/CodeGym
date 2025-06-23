@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 4</title>
+</head>
+<body>
+<pre id="output"></pre>
+<script>
+    let chieuDai, chieuRong;
+    let result = "";
+
+    let nhapchieuDai = prompt("Nhập chiều dài");
+    let nhapchieuRong = prompt("Nhập chiều rộng");
+    if (nhapchieuDai === null || nhapchieuDai.trim() === "" ||
+        nhapchieuRong === null || nhapchieuRong.trim() === "") {
+        alert("Không được để trống!");
+    }
+    chieuDai = + nhapchieuDai;
+    chieuRong = + nhapchieuRong;
+
+    if (isNaN(chieuDai) || isNaN(chieuRong) || chieuDai < 2 || chieuRong < 2) {
+        alert("Vui lòng nhập lại.");
+    } else {
+        for (let i = 1; i <= chieuRong; i++) {
+            for (let j = 1; j <= chieuDai; j++) {
+                if (i === 1 || i === chieuRong) {
+                    result += "*";
+                } else {
+                    if (j === 1 || j === chieuDai) {
+                        result += "*";
+                    }
+                    else {
+                        result += " ";
+                    }
+                }
+            }
+            result += "\n";
+        }
+        document.getElementById("output").innerText = result;
+    }
+
+</script>
+</body>
+</html>

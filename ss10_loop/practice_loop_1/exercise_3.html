@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 3</title>
+</head>
+<body>
+    <p id="result"></p>
+    <script>
+        let fn1 = 0, fn2 = 1;
+        let output = fn1 + " " + fn2 + " ";
+
+        for (let i = 3; i <= 20; i++) {
+            let fn = fn1 + fn2;
+            output += fn + " ";
+            fn1 = fn2;
+            fn2 = fn;
+        }
+        document.getElementById("result").innerText = output;
+    </script>
+</body>
+</html>

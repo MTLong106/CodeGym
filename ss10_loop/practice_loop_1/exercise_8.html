@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 8</title>
+</head>
+<body>
+  <button type = "button" onclick="choiGame()">Chơi</button>
+  <script>
+    function choiGame() {
+      let soNhoNhat, soLonNhat, soDoan;
+
+      while (true) {
+        <!--Chat GPT: Mục đích để người dùng không được để trống-->
+        let nhapNho = prompt("Nhập số nhỏ nhất:");
+        let nhapLon = prompt("Nhập số lớn nhất:");
+        if (nhapNho === null || nhapNho.trim() === "" || nhapLon === null || nhapLon.trim() === "") {
+          alert("Không được để trống!");
+          continue;
+        }
+        soNhoNhat = +nhapNho;
+        soLonNhat = +nhapLon;
+        <!--Chat GPT: Mục đích để người dùng không được để trống-->
+
+        if (isNaN(soNhoNhat) || isNaN(soLonNhat) || soNhoNhat >= soLonNhat) {
+          alert("Vui lòng nhập lại.");
+        } else {
+          break;
+        }
+      }
+
+      let soRandom = Math.floor(Math.random() * (soLonNhat - soNhoNhat + 1)) + soNhoNhat;
+      let soLanDoan = 1;
+      while (soLanDoan <= 3) {
+        soDoan = prompt("Nhập số bạn đoán");
+        if (soDoan > soLonNhat){
+          alert("Nhập số nhỏ hơn");
+        } else if (soDoan < soNhoNhat){
+          alert("Nhập số lớn hơn");
+        } else if (soDoan === soRandom){
+          alert("Chuẩn rồi");
+          break;
+        } else {
+          if (soLanDoan === 3){
+            alert("Hết lượt chơi");
+          } else{
+            alert("Gần đúng rồi, nhập lại đi");
+          }
+          soLanDoan++;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 2</title>
+</head>
+<body>
+<p id="output"></p>
+
+<script>
+    let number;
+    let nhapSo = prompt("Nhập số");
+    if (nhapSo === null || nhapSo.trim() === "") {
+        alert("Không được để trống!");
+    }
+    number = + nhapSo;
+
+    if (isNaN(number)) {
+        alert("Vui lòng nhập lại.");
+    }
+
+    let result = 1;
+    if (isNaN(number)) {
+        alert("Not a valid number");
+    } else {
+        for (let i = 1; i <= number; i++) {
+            result *= i;
+        }
+        document.getElementById("output").innerText = result;
+    }
+</script>
+</body>
+</html>

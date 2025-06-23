@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 1</title>
+</head>
+<body>
+  <button onclick="demSo()">Đếm số</button>
+  <p id = "result"></p>
+  <script>
+    let count = 1;
+    function demSo() {
+      let result = document.getElementById("result");
+      for (let i = 1; i <= 100; i++) {
+        if (count <= 99){
+          result.innerHTML += count + " ";
+        }
+        if (count === 99){
+          alert("Hoàn thành");
+        }
+        count++;
+      }
+    }
+  </script>
+</body>
+</html>
