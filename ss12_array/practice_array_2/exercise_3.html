@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 3</title>
+</head>
+<body>
+<p id = "arr"></p>
+<p id = "count"></p>
+
+<script>
+  let n = parseInt(prompt("Nhập số phần tử"));
+  let arr = [];
+  //Nhập mảng từ bàn phím
+  for (let i = 0; i < n; i++) {
+    let value = prompt(`Nhập phần tử thứ ${i}:`);
+    arr.push(value);
+  }
+
+  // Đếm số ký tự là số 0 - 9
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] >= '0' && arr[i] <= '9') {
+      count++;
+    }
+  }
+
+  // In ra màn hình
+  document.getElementById("arr").innerHTML = "Kết quả: " + arr;
+  document.getElementById("count").innerHTML = "Số kí tự: " + count;
+</script>
+</body>
+</html>

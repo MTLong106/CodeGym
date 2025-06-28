@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 4</title>
+</head>
+<body>
+<p id="arrInput"></p>
+<p id="arrReverse"></p>
+
+<script>
+    let n = parseInt(prompt("Nhập số phần tử:"));
+    let arrInput = [];
+    let arrReverse = [];
+
+    // Nhập mảng từ bàn phím
+    for (let i = 0; i < n; i++) {
+        let value = parseInt(prompt(`Nhập phần tử thứ ${i}:`));
+        arrInput.push(value);
+    }
+
+    // Đảo ngược mảng
+    for (let i = arrInput.length - 1; i >= 0; i--) {
+        arrReverse.push(arrInput[i]);
+    }
+
+    // In ra màn hình
+    document.getElementById("arrInput").innerHTML = "Mảng nhập vào: " + arrInput;
+    document.getElementById("arrReverse").innerHTML = "Mảng đảo ngược: " + arrReverse;
+
+</script>
+</body>
+</html>

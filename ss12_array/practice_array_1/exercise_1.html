@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 1</title>
+</head>
+<body>
+<p id="arrInput"></p>
+<p id="count"></p>
+<p id="display"></p>
+<script>
+    let n = parseInt(prompt("Nhập số phần tử:"));
+    let arrInput = [];
+    let count = 0;
+    let result = "";
+    // Nhập mảng từ bàn phím
+    for (let i = 0; i < n; i++) {
+        let value = parseInt(prompt(`Nhập phần tử thứ ${i}:`));
+        arrInput.push(value);
+    }
+
+    // Kiểm tra phần tử lớn hơn 10
+    for (let i = 0; i < arrInput.length; i++) {
+        if (arrInput[i] >= 10) {
+            count++;
+            result += arrInput[i] + " ";
+        }
+    }
+
+    // In ra màn hình
+    document.getElementById("arrInput").innerHTML = "Mảng nhập vào: " + arrInput;
+    document.getElementById("display").innerHTML = result;
+    document.getElementById("count").innerHTML = "Số phần tử lớn hơn 10: " + count;
+</script>
+</body>
+</html>

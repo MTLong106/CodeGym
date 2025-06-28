@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 5</title>
+</head>
+<body>
+<p id="stringA"></p>
+<p id="stringB"></p>
+<p id="result"></p>
+
+<script>
+    // Nhập chuỗi A từ bàn phím
+    let stringA = prompt("Nhập chuỗi A:");
+
+    // Nhập chuỗi A từ bàn phím
+    let stringB = prompt("Nhập chuỗi B:");
+
+    // Tách chuỗi thành mảng
+    if (stringA === stringB) {
+        document.getElementById("result").innerHTML = "Chuỗi giống nhau";
+    } else {
+        document.getElementById("result").innerHTML = "Chuỗi khác nhau";
+    }
+
+    // In ra màn hình
+    document.getElementById("stringA").innerHTML = "Chuỗi A: " + stringA;
+    document.getElementById("stringB").innerHTML = "Chuỗi B: " + stringB;
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 2</title>
+</head>
+<body>
+<p id = "arr"></p>
+
+<script>
+  let n = parseInt(prompt("Nhập số phần tử:"));
+  let arr = [];
+  //Nhập mảng từ bàn phím
+  for (let i = 0; i < n; i++) {
+    let value = parseInt(prompt(`Nhập phần tử thứ ${i}:`));
+    arr.push(value);
+  }
+
+  // Đảo ngược mảng:
+  arr.reverse()
+
+  // In ra màn hình
+  document.getElementById("arr").innerHTML = "Kết quả: " + arr;
+</script>
+</body>
+</html>

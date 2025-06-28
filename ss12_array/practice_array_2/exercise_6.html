@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 6</title>
+</head>
+<body>
+<p id = "arrInput"></p>
+<p id = "arrOutput"></p>
+
+
+<script>
+    let n = parseInt(prompt("Nhập số phần tử:"));
+    let arrInput = [];
+    //Nhập mảng từ bàn phím
+    for (let i = 0; i < n; i++) {
+        let value = prompt(`Nhập phần tử thứ ${i}:`);
+        arrInput.push(value);
+    }
+    let arrOutput = arrInput.slice();
+
+    // Đổi kí tự '-' thành '_'
+    for (let i = 0; i < arrOutput.length; i++) {
+        if (arrOutput[i] === '-') {
+            arrOutput[i] = '_';
+        }
+    }
+
+    // In ra màn hình
+    document.getElementById("arrInput").innerHTML = "Mảng ban đầu: " + arrInput;
+    document.getElementById("arrOutput").innerHTML = "Mảng đã sửa: " + arrOutput;
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 7</title>
+</head>
+<body>
+<p id="arrInput"></p>
+<script>
+    let n = parseInt(prompt("Nhập số phần tử:"));
+    let arrInput = [];
+    let check = 0;
+
+    //Nhập mảng từ bàn phím
+    for (let i = 0; i < n; i++) {
+        let value = parseInt(prompt(`Nhập phần tử thứ ${i}:`));
+        arrInput.push(value);
+    }
+
+    //Kiểm tra có V trong mảng không
+    let number = +prompt("Nhập số cần tìm:")
+    for (let i = 0; i < arrInput.length; i++) {
+        if (arrInput[i] === number) {
+            check = 1;
+            posNum = i;
+            break;
+        }
+    }
+
+    // Kiểm tra vị trí của number
+    if (check) {
+        // Nếu number ở vị trí cuối của mảng
+        if (posNum === arrInput.length - 1) {
+            arrInput[arrInput.length - 1] = 0;
+        }
+        // Nếu number ở vị trí đầu tiên
+        else if (posNum === 0) {
+            for (let i = 0; i < arrInput.length - 1; i++) {
+                arrInput[i] = arrInput[i + 1];
+            }
+            arrInput[arrInput.length - 1] = 0;
+        }
+        // Nếu number ở vị trí bất kì
+        else {
+            // Duyệt, thay đổi giá trị từ vị trí của number
+            for (let i = posNum; i < arrInput.length - 1; i++) {
+                arrInput[i] = arrInput[i + 1];
+            }
+            arrInput[arrInput.length - 1] = 0;
+        }
+    } else {
+        alert(`${number} is not in the array`);
+    }
+
+    // In ra màn hình
+    document.getElementById("arrInput").innerHTML = "Mảng nhập vào: " + arrInput;
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sử dụng hàm có sẵn</title>
+</head>
+<body>
+  <p id = "result1"></p>
+  <p id = "result2"></p>
+  <p id = "result3"></p>
+  <script>
+    // Nối các phần tử trong mảng thành chuỗi
+    let myColor = ["Red", "Green", "White", "Black"];
+    document.getElementById("result1").innerText = myColor.join(", ");
+
+    // Chèn dấu '-' vào giữa các số chẵn
+    let input = prompt("Nhập mảng");
+    let array = input.split("");
+    let result2 = "";
+    for (let i = 0; i < array.length; i++) {
+      result2 += input[i];
+      if (i < array.length - 1 &&
+              parseInt(array[i]) % 2 === 0 &&
+              parseInt(array[i + 1]) % 2 === 0) {
+        result2 += "-";
+      }
+    }
+    document.getElementById("result2").innerText = result2;
+
+    //Chuyển đổi chữ hoa <=> thường
+    let text = "The Quick Brown Fox";
+    let result3 = "";
+    for (let i = 0; i < text.length; i++) {
+      let char = text[i];
+      if (char === char.toUpperCase()) {
+          result3 += char.toLowerCase();
+      } else {
+          result3 += char.toUpperCase();
+      }
+    }
+    document.getElementById("result3").innerText = result3;
+  </script>
+</body>
+</html>

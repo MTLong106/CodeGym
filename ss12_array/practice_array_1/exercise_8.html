@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 8</title>
+</head>
+<body>
+<p id = "arrInput"></p>
+<p id = "arrOutput"></p>
+<script>
+  let n = parseInt(prompt("Nhập số phần tử:"));
+  let arrInput = [];
+
+  // Nhập mảng từ bàn phím
+  for (let i = 0; i < n; i++) {
+    let value = parseInt(prompt(`Nhập phần tử thứ ${i}:`));
+    arrInput.push(value);
+  }
+
+  let arrOutput = arrInput.slice();
+
+  // Sắp xếp mảng - Selection Sort: Chọn phần tử nhỏ nhất trong mảng và đưa lên đầu
+  <!--
+  Chọn vị trí có giá trị nhỏ nhất là minPos = i;
+  Nếu phần còn lại có giá trị nhỏ hơn thì gán minPos = j;
+
+  Vòng lặp i: không cần xét chỉ số cuối cùng vì tự động sắp xếp đúng
+  Vòng lặp j: phải xét đủ các chỉ số
+
+  Chọn 1 biến tạm để lưu giá trị phần tử vị trí i;
+  Cập nhật giá trị nhỏ nhất vào phần tử vị trí i;
+  Cập nhật giá trị biến tạm vào phần tử vị trí minPos
+  -->
+  for (let i = 0; i < arrOutput.length - 1; i++) {
+    let minPos = i;
+    for(let j = i + 1; j < arrOutput.length; j++) {
+      if(arrOutput[j] < arrOutput[minPos]) {
+        minPos = j;
+      }
+    }
+    if (minPos !== i) {
+      let temp = arrOutput[i];
+      arrOutput[i] = arrOutput[minPos];
+      arrOutput[minPos] = temp;
+    }
+  }
+
+  // In ra màn hình
+  document.getElementById("arrInput").innerHTML = "Mảng nhập vào: " + arrInput;
+  document.getElementById("arrOutput").innerHTML = "Mảng sau khi sắp xếp: " + arrOutput;
+</script>
+</body>
+</html>

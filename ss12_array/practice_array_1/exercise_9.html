@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 9</title>
+</head>
+<body>
+<p id="arrA"></p>
+<p id="arrB"></p>
+<p id="arrC"></p>
+
+<script>
+    let arrA = [];
+    let arrB = [];
+    let arrC = [];
+
+    alert("Nhập mảng A");
+    let elementNumA = parseInt(prompt("Nhập số phần tử:"));
+    //Nhập mảng A từ bàn phím
+    for (let i = 0; i < elementNumA; i++) {
+        let value = parseInt(prompt(`Nhập phần tử thứ ${i}:`));
+        arrA.push(value);
+    }
+
+    alert("Nhập mảng B");
+    let elementNumB = parseInt(prompt("Nhập số phần tử:"));
+    //Nhập mảng B từ bàn phím
+    for (let i = 0; i < elementNumB; i++) {
+        let value = parseInt(prompt(`Nhập phần tử thứ ${i}:`));
+        arrB.push(value);
+    }
+
+    // Nối mảng A vào C
+    for (let i = 0; i < arrA.length; i++) {
+        arrC.push(arrA[i]);
+    }
+
+    // Nối mảng B vào C
+    for (let i = 0; i < arrB.length; i++) {
+        arrC.push(arrB[i]);
+    }
+
+    // In ra màn hình
+    document.getElementById("arrA").innerHTML = "Mảng A: " + arrA;
+    document.getElementById("arrB").innerHTML = "Mảng B: " + arrB;
+    document.getElementById("arrC").innerHTML = "Mảng C: " + arrC;
+</script>
+</body>
+</html>

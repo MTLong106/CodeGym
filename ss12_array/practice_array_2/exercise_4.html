@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 4</title>
+</head>
+<body>
+<p id = "string"></p>
+<p id = "count"></p>
+
+<script>
+  // Nhập chuỗi từ bàn phím
+  let string = prompt("Nhập chuỗi:");
+
+  // Tách chuỗi thành mảng
+  let arr = string.split(" ");
+
+  // In ra màn hình
+  document.getElementById("string").innerHTML = "Chuỗi: " + string;
+  document.getElementById("count").innerHTML = "Số từ: " + arr.length;
+</script>
+</body>
+</html>

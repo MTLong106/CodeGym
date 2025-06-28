@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 2</title>
+</head>
+<body>
+<p id="arrInput"></p>
+<p id="maxNum"></p>
+<p id="maxPos"></p>
+<script>
+    let n = parseInt(prompt("Nhập số phần tử:"));
+    let arrInput = [];
+    let maxNum = 0;
+    let maxPos = 0;
+    / /Nhập mảng từ bàn phím
+    for (let i = 0; i < n; i++) {
+        let value = parseInt(prompt(`Nhập phần tử thứ ${i}:`));
+        arrInput.push(value);
+    }
+
+    // Kiểm tra giá trị lớn nhất
+    for (let i = 0; i < arrInput.length; i++) {
+        if (arrInput[i] > maxNum) {
+            maxNum = arrInput[i];
+            maxPos = i;
+        }
+    }
+
+    // In ra màn hình
+    document.getElementById("arrInput").innerHTML = "Mảng nhập vào: " + arrInput;
+    document.getElementById("maxNum").innerHTML = "Giá trị lớn nhất: " + maxNum;
+    document.getElementById("maxPos").innerHTML = "Vị trí phần tử" + maxPos;
+</script>
+</body>
+</html>
