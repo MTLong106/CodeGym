@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 4</title>
+</head>
+<body>
+<label for="charInput">Nhập: </label>
+<input type="text" id="charInput">
+<button type="button" onclick="checkNumber()">Kiểm tra kí tự số</button>
+<p id="result"></p>
+<script>
+  function isCharNumber(char) {
+    return char >= "0" && char <= "9" && char.length === 1;
+  }
+
+  function checkNumber() {
+    let charInput = document.getElementById("charInput").value;
+    let result = document.getElementById("result");
+
+    if(isCharNumber(charInput)){
+      result.innerHTML = `${charInput} là kí tự số`;
+    } else {
+      result.innerHTML = `${charInput} không phải kí tự số`;
+    }
+  }
+
+</script>
+</body>
+</html>

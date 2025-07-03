@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 3</title>
+</head>
+<body>
+<label for="number1">Nhập số thứ nhất: </label>
+<input type="number" id="number1">
+<label for="number2">Nhập số thứ hai: </label>
+<input type="number" id="number2">
+<button type="button" onclick="checkNumbers()">Kiểm tra</button>
+<p id="result"></p>
+
+<script>
+  function compareNumbers(num1, num2) {
+    return num1 <= num2;
+  }
+
+  function checkNumbers() {
+    let number1 = + document.getElementById("number1").value;
+    let number2 = + document.getElementById("number2").value;
+    let result = document.getElementById("result");
+
+    if (compareNumbers(number1, number2)){
+      result.innerHTML = "Tổng: " + (number1 + number2);
+    } else {
+      result.innerHTML = "số thứ nhất lớn hơn số thứ hai";
+    }
+  }
+</script>
+</body>
+</html>

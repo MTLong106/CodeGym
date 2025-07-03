@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 2</title>
+</head>
+<body>
+<label for="number">Nhập bán kính: </label>
+<input type="number" id="number">
+<button type="button" onclick="kiemTra()">Kiểm tra</button> <br><br>
+<label for="dienTich">Diện tích: </label>
+<input type="number" id="dienTich" readonly><br><br>
+<label for="chuVi">Chu vi: </label>
+<input type="number" id="chuVi" readonly>
+<script>
+  function tinhDienTich(num) {
+    return Math.PI * num * num;
+  }
+
+  function tinhChuVi(num) {
+    return 2 * Math.PI * num;
+  }
+
+  function kiemTra() {
+    let number = + document.getElementById("number").value;
+    let dienTich = tinhDienTich(number);
+    let chuVi = tinhChuVi(number);
+    document.getElementById("dienTich").value = dienTich.toFixed(2);
+    document.getElementById("chuVi").value = chuVi.toFixed(2);
+  }
+</script>
+</body>
+</html>

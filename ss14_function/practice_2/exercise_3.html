@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 3</title>
+</head>
+<body>
+<label for="number">Nhập số: </label>
+<input type="number" id="number">
+<button type="button" onclick="kiemTra()">Tính giai thừa</button>
+<p id="result"></p>
+<script>
+    function tinhGiaiThua(num) {
+        let result = 1;
+        for (let i = 1; i <= num; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    function kiemTra() {
+        let number = +document.getElementById("number").value;
+
+        if (isNaN(number) || number <= 0) {
+            alert("Nhập lại");
+            return;
+        }
+
+        let result = tinhGiaiThua(number);
+        document.getElementById("result").innerHTML = "Kết quả: " + result;
+    }
+
+</script>
+</body>
+</html>

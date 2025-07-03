@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 1</title>
+</head>
+<body>
+<label for="number">Nhập số: </label>
+<input type="number" id="number">
+<button type="button" onclick="kiemTra()">Tính bình phương</button>
+<p id="result"></p>
+<script>
+    function tinhBinhPhuong(num) {
+        return num * num;
+    }
+
+    function kiemTra() {
+        let number = document.getElementById("number").value;
+        let result = tinhBinhPhuong(number);
+        document.getElementById("result").innerHTML = result;
+    }
+
+</script>
+</body>
+</html>

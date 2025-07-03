@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 5</title>
+</head>
+<body>
+<button type="button" onclick="checkStar()">Nhập tên ngôi sao</button>
+<p id="result"></p>
+<script>
+  let starNames = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+  let constellation  = ["Ursa Minor", "Taurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+  function checkConstellation(name) {
+    for (let index = 0; index < starNames.length; index++) {
+      if(name.toLowerCase() === starNames[index].toLowerCase()) {
+        return index;
+      }
+    }
+    return -1;
+  }
+
+  function checkStar() {
+    let nameInput = prompt("Nhập tên ngôi sao: ");
+    if (nameInput === null || nameInput.trim() === "") {
+       alert("Hãy nhập lại");
+      return;
+    }
+    let result = checkConstellation(nameInput);
+    if (result !== -1){
+      document.getElementById("result").innerHTML = "Chòm sao: " + constellation[result];
+    } else {
+      document.getElementById("result").innerHTML = "Không có chòm sao phù hợp";
+    }
+
+
+  }
+</script>
+
+</body>
+</html>

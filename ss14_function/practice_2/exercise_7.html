@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 7</title>
+</head>
+<body>
+<script>
+    function convertPosition(num) {
+        let temp = num[0];
+        num[0] = num[1];
+        num[1] = temp;
+        return num;
+    }
+
+    let number = [1, 2];
+    let result = convertPosition(number);
+    alert(result);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 6</title>
+</head>
+<body>
+<script>
+    function checkNumber(num) {
+        return num > 0;
+    }
+
+    let number = +prompt("Nhập số: ");
+    let result = checkNumber(number);
+
+    if (result) {
+        alert(`${number} là số dương`)
+    } else {
+        alert(`${number} không phải số dương`)
+    }
+</script>
+</body>
+</html>
