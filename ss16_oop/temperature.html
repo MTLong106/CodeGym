@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhiệt độ</title>
+</head>
+<body>
+<script>
+    class NhietDo {
+        constructor(doC) {
+            if (doC < -273) {
+                this._doC = -273;
+            } else {
+                this._doC = doC;
+            }
+        }
+
+        // Getter
+        get doC() {
+            return this._doC;
+        }
+
+        // Setter
+        set doC(giaTri) {
+            if (giaTri < -273) {
+                this._doC = -273;
+            } else {
+                this._doC = giaTri;
+            }
+        }
+
+        // Phương thức chuyển đổi
+        doF() {
+            return this._doC * 9 / 5 + 32;
+        }
+
+        doK() {
+            return this._doC + 273.15;
+        }
+    }
+
+    let nhapDoC = + prompt("Nhiệt độ C:");
+    let nhietDo = new NhietDo(nhapDoC);
+
+    alert(`Nhiệt độ C: ${nhietDo.doC}`);
+    alert(`Độ F: ${nhietDo.doF().toFixed(2)}`);
+    alert(`Độ K: ${nhietDo.doK().toFixed(2)}`);
+
+    //Nhiệt độ mới
+    let nhapDoCMoi = +prompt("Nhiệt độ C mới:");
+    nhietDo.doC = nhapDoCMoi;
+
+    alert(`Nhiệt độ C mới: ${nhietDo.doC}`);
+    alert(`Độ F mới: ${nhietDo.doF().toFixed(2)}`);
+    alert(`Độ K mới: ${nhietDo.doK().toFixed(2)}`);
+
+
+</script>
+</body>
+</html>

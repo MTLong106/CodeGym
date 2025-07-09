@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hình chữ nhật</title>
+</head>
+<body>
+<script>
+  class HinhChuNhat {
+    constructor(chieuDai, chieuRong) {
+      this._chieuDai = chieuDai;
+      this._chieuRong = chieuRong;
+    }
+
+    // Getter
+    get chieuDai() {
+      return this._chieuDai;
+    }
+
+    get chieuRong() {
+      return this._chieuRong;
+    }
+
+    // Setter
+    set chieuDai(giaTri) {
+      if (giaTri > 0) {
+        this._chieuDai = giaTri;
+      }
+      else {
+        alert("Nhập chiều dài lớn hơn 0");
+      }
+    }
+
+    set chieuRong(giaTri) {
+      if (giaTri > 0) {
+        this._chieuRong = giaTri;
+      }
+      else {
+        alert("Nhập chiều rộng lớn hơn 0");
+      }
+    }
+
+    // Tính diện tích
+    tinhDienTich() {
+      return this._chieuDai * this._chieuRong;
+    }
+
+    // Tính chu vi
+    tinhChuVi() {
+      return 2 * (this._chieuDai + this._chieuRong);
+    }
+  }
+
+  // Tạo đối tượng
+  let hcn = new HinhChuNhat(100, 50);
+
+  alert(`Chiều dài: ${hcn.chieuDai}`);
+  alert(`Chiều rộng: ${hcn.chieuRong}`);
+  alert(`Diện tích: ${hcn.tinhDienTich()}`);
+  alert(`Chu vi: ${hcn.tinhChuVi()}`);
+
+  // Nhập chiều dài và chiều rộng mới
+  let chieuDaiMoi = + prompt("Nhập chiều dài:");
+  let chieuRongMoi = + prompt("Nhập chiều rộng:");
+
+  hcn.chieuDai = chieuDaiMoi;
+  hcn.chieuRong = chieuRongMoi;
+
+  alert(`Chiều dài: ${hcn.chieuDai}`);
+  alert(`Chiều rộng: ${hcn.chieuRong}`);
+  alert(`Diện tích: ${hcn.tinhDienTich()}`);
+  alert(`Chu vi: ${hcn.tinhChuVi()}`);
+</script>
+</body>
+</html>
