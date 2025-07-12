@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý sản phẩm</title>
+</head>
+<body>
+<input type="text" id="id" placeholder="Nhập id">
+<input type="text" id="name" placeholder="Nhập tên sản phẩm">
+<input type="number" id="price" placeholder="Nhập giá">
+<button type="button" onclick="createProduct()">Thêm</button>
+<button type="button" onclick="updateProduct()">Sửa</button>
+
+<table id="productTable" border="1" cellpadding="8" style="margin-top: 10px">
+  <tr>
+    <th>STT</th>
+    <th>ID</th>
+    <th>Tên sản phẩm</th>
+    <th>Giá</th>
+    <th>Chức năng</th>
+  </tr>
+</table>
+
+<script>
+  class Product {
+    constructor(id, name, price) {
+      this._id = id;
+      this._name = name;
+      this._price = price;
+    }
+
+    get id() {
+      return this._id;
+    }
+
+    set id(value) {
+      this._id = value;
+    }
+
+    get name() {
+      return this._name;
+    }
+
+    set name(value) {
+      this._name = value;
+    }
+
+    get price() {
+      return this._price;
+    }
+
+    set price(value) {
+      this._price = value;
+    }
+  }
+
+  class ManageProduct {
+    constructor() {
+      this.products = [];
+    }
+
+    create(product) {
+      this.products.push(product);
+      this.read();
+    }
+
+    read() {
+      let table = document.getElementById("productTable");
+      let tableContent = `
+          <tr>
+            <th>STT</th>
+            <th>ID</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Chức năng</th>
+          </tr>
+        `;
+
+      for (let i = 0; i < this.products.length; i++) {
+        let product = this.products[i];
+        tableContent += `
+            <tr>
+              <td>${i + 1}</td>
+              <td>${product.id}</td>
+              <td>${product.name}</td>
+              <td>${product.price}</td>
+              <td>
+                <button onclick="editProduct(${i})">Sửa</button>
+                <button onclick="deleteProduct(${i})">Xoá</button>
+              </td>
+            </tr>
+          `;
+      }
+
+      table.innerHTML = tableContent;
+    }
+
+    update(index, newProduct) {
+      this.products[index] = newProduct;
+      this.read();
+    }
+
+    delete(index) {
+      this.products.splice(index, 1);
+      this.read();
+    }
+  }
+
+  let manager = new ManageProduct();
+  let selectedIndex = -1;
+
+  function createProduct() {
+    let id = document.getElementById("id").value;
+    let name = document.getElementById("name").value;
+    let price = parseInt(document.getElementById("price").value);
+
+    if (id && name && !isNaN(price)) {
+      let newProduct = new Product(id, name, price);
+      manager.create(newProduct);
+      clearInput();
+    } else {
+      alert("Hãy nhập đủ thông tin");
+    }
+  }
+
+  function editProduct(index) {
+    let product = manager.products[index];
+    document.getElementById("id").value = product.id;
+    document.getElementById("name").value = product.name;
+    document.getElementById("price").value = product.price;
+    selectedIndex = index;
+  }
+
+  function updateProduct() {
+    if (selectedIndex === -1) {
+      alert("Hãy chọn sản phẩm để sửa");
+      return;
+    }
+
+    let id = document.getElementById("id").value;
+    let name = document.getElementById("name").value;
+    let price = parseInt(document.getElementById("price").value);
+
+    if (id && name && !isNaN(price)) {
+      let updatedProduct = new Product(id, name, price);
+      manager.update(selectedIndex, updatedProduct);
+      clearInput();
+      selectedIndex = -1;
+    } else {
+      alert("Hãy nhập đủ thông tin");
+    }
+  }
+
+  function deleteProduct(index) {
+    manager.delete(index);
+    clearInput();
+    selectedIndex = -1;
+  }
+
+  function clearInput() {
+    document.getElementById("id").value = "";
+    document.getElementById("name").value = "";
+    document.getElementById("price").value = "";
+  }
+</script>
+</body>
+</html>
