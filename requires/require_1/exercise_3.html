@@ -5,6 +5,7 @@
   <title>Exercise 2</title>
 </head>
 <body>
+<p id="arrayInput"></p>
 <script>
   function isPrime(element){
     if(element < 2){
@@ -39,6 +40,7 @@
   } else {
     alert("Không phải mảng số nguyên tố");
   }
+  document.getElementById("arrayInput").innerHTML = "Mảng nhập vào: " + array;
 
 </script>
 </body>

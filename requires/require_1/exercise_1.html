@@ -5,6 +5,7 @@
     <title>Exercise 1</title>
 </head>
 <body>
+<p id="arrayInput"></p>
 <script>
     function isEven(arr){
         let evenCheck = 0;
@@ -43,6 +44,7 @@
     } else {
         alert("Mảng không chẵn không lẻ");
     }
+    document.getElementById("arrayInput").innerHTML = "Mảng nhập vào: " + array;
 
 </script>
 </body>
