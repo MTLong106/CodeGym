@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 2</title>
+</head>
+<body>
+<script>
+  function isPrime(element){
+    if(element < 2){
+      return false;
+    }
+    for(let i = 2; i <= Math.sqrt(element); i++){
+      if(element % i === 0){
+        return false;
+      }
+    }
+    return true;
+  }
+
+  //Nhap mang
+  let n = + prompt("Nhập số phần tử: ");
+  let array = [];
+
+  for (let i = 0; i < n; i++) {
+    let element = + prompt(`Nhập phần tử thứ ${i}: `);
+    array.push(element);
+  }
+
+  let count = 0;
+  for(let i = 0; i < array.length; i++){
+    if(isPrime(array[i])) {
+      count++;
+    }
+  }
+
+  if(count === array.length){
+    alert("Mảng số nguyên tố");
+  } else {
+    alert("Không phải mảng số nguyên tố");
+  }
+
+</script>
+</body>
+</html>
