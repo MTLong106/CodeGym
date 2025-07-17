@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 3</title>
+</head>
+<body>
+<script>
+  function checkArray(arr){
+    let n = arr.length;
+    if(n < 4){
+      return -1;
+    }
+    let max = 0;
+    for(let i = 0; i < n; i++){
+      let tmp = arr.slice();       // sao chép mảng arr
+      tmp.splice(i, 1);            // loại bỏ phần tử thứ i
+      let num = "";                // khai báo chuỗi rỗng
+      for(let j = 0; j < tmp.length; j++){
+        num += tmp[j];             // chuyển thành chuỗi
+      }
+      if(parseInt(num) > max){
+        max = num;
+      }
+    }
+    return max;
+  }
+
+  let number = prompt("Nhap so");
+  if(isNaN(number)){
+    alert("Nhap so nguyen");
+  }
+  let array = number.split("");
+
+  let result = checkArray(array);
+  alert(result);
+</script>
+</body>
+</html>

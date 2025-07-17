@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise_1</title>
+</head>
+<body>
+<script>
+    function checkArray(arr){
+        for (let i = 0; i < Math.floor(arr.length / 2); i++) {
+            if (arr[i] !== arr[arr.length - 1 - i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    let n = +prompt("Nhap so phan tu");
+    let array = [];
+
+    for (let i = 0; i < n; i++) {
+        let element = +prompt(`Nhap phan tu thu ${i}: `);
+        array.push(element);
+    }
+    alert(array);
+
+    let result = checkArray(array);
+    if(result === true){
+        alert("OK");
+    } else {
+        alert("NO");
+    }
+</script>
+</body>
+</html>
