@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 1</title>
+</head>
+<body>
+<script>
+    let n;
+    do{
+        n = + prompt("Nhap so phan tu: ");
+    } while(isNaN(n) || n > 20 || n < 2);
+    let array = [];
+    for(let i = 0; i < n ; i++){
+        let element = + prompt(`Nhap phan tu thu ${i}: `);
+        array.push(element);
+    }
+    alert(array);
+    alert(array.length);
+
+    let check = true;
+    let distance = array[1] - array[0];
+    for(let i = 0; i < array.length - 1; i++){
+        if(array[i + 1] - array[i] !== distance){
+            check = false;
+            break;
+        }
+    }
+
+    if(check === true){
+        alert("OK");
+    } else {
+        alert("NO");
+    }
+
+
+</script>
+
+</body>
+</html>

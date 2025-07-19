@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý học viên</title>
+</head>
+<body>
+<button type="button" onclick="createStudent()">Thêm mới học viên</button>
+<button type="button" onclick="editStudent()">Sửa thông tin học viên</button>
+<button type="button" onclick="deleteStudent()">Xóa học viên</button>
+
+<br><br>
+
+<table border="1" id="studentTable" cellpadding="8" style="margin-top: 10px">
+    <tr>
+        <th>STT</th>
+        <th>Mã học viên</th>
+        <th>Tên</th>
+        <th>Lớp</th>
+        <th>Email</th>
+        <th>Ngày sinh</th>
+        <th>Module</th>
+    </tr>
+</table>
+
+<script>
+    class InfoStudent {
+        constructor(id, name, grade, email, date, module) {
+            this._id = id;
+            this._name = name;
+            this._grade = grade;
+            this._email = email;
+            this._date = date;
+            this._module = module;
+        }
+
+        get id() { return this._id; }
+        set id(id) { this._id = id; }
+
+        get name() { return this._name; }
+        set name(name) { this._name = name; }
+
+        get grade() { return this._grade; }
+        set grade(grade) { this._grade = grade; }
+
+        get email() { return this._email; }
+        set email(email) { this._email = email; }
+
+        get date() { return this._date; }
+        set date(date) { this._date = date; }
+
+        get module() { return this._module; }
+        set module(module) { this._module = module; }
+    }
+
+    class ManagerStudent {
+        constructor() {
+            this.students = [];
+        }
+
+        create(student) {
+            this.students.push(student);
+            this.read();
+        }
+
+        read() {
+            let table = document.getElementById("studentTable");
+            let content = `
+                <tr>
+                    <th>STT</th>
+                    <th>Mã học viên</th>
+                    <th>Tên</th>
+                    <th>Lớp</th>
+                    <th>Email</th>
+                    <th>Ngày sinh</th>
+                    <th>Module</th>
+                </tr>`;
+
+            for (let i = 0; i < this.students.length; i++) {
+                let student = this.students[i];
+                content += `
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td>${student.id}</td>
+                        <td>${student.name}</td>
+                        <td>${student.grade}</td>
+                        <td>${student.email}</td>
+                        <td>${student.date}</td>
+                        <td>${student.module}</td>
+                    </tr>`;
+            }
+
+            table.innerHTML = content;
+        }
+
+        update(index, student) {
+            this.students[index] = student;
+            this.read();
+        }
+
+        delete(index) {
+            this.students.splice(index, 1);
+            this.read();
+        }
+
+        findIndexById(id) {
+            for (let i = 0; i < this.students.length; i++) {
+                if (this.students[i].id === id) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+    }
+
+    let manager = new ManagerStudent();
+
+    function createStudent() {
+        let id = prompt("Nhập mã học viên:");
+        let name = prompt("Nhập tên:");
+        let grade = prompt("Nhập lớp:");
+        let email = prompt("Nhập email:");
+        let date = prompt("Nhập ngày sinh:");
+        let module = + prompt("Nhập module:");
+
+        if (id && name && grade && email && date && !isNaN(module)) {
+            let newStudent = new InfoStudent(id, name, grade, email, date, module);
+            manager.create(newStudent);
+        } else {
+            alert("Thông tin không hợp lệ.");
+        }
+    }
+
+    function editStudent() {
+        let id = prompt("Nhập mã học viên cần sửa:");
+        let index = manager.findIndexById(id);
+        if (index === -1) {
+            alert("Không tìm thấy học viên.");
+            return;
+        }
+
+        let student = manager.students[index];
+        let newId = prompt("Sửa mã học viên:", student.id);
+        let name = prompt("Sửa tên:", student.name);
+        let grade = prompt("Sửa lớp:", student.grade);
+        let email = prompt("Sửa email:", student.email);
+        let date = prompt("Sửa ngày sinh:", student.date);
+        let module = + prompt("Sửa module:", student.module);
+
+        if (newId && name && grade && email && date && !isNaN(module)) {
+            let updated = new InfoStudent(newId, name, grade, email, date, module);
+            manager.update(index, updated);
+        } else {
+            alert("Thông tin không hợp lệ.");
+        }
+    }
+
+    function deleteStudent() {
+        let id = prompt("Nhập mã học viên cần xóa:");
+        for (let i = 0; i < manager.students.length; i++) {
+            if (manager.students[i].id === id) {
+                index = i;
+                break;
+            }
+        }
+        if (index === -1) {
+            alert("Không tìm thấy học viên.");
+            return;
+        }
+        manager.delete(index);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 9</title>
+</head>
+<body>
+<script>
+  function checkString(str){
+    let vowel = ['u','e','o','a','i'];
+    let result = [];
+    str = str.toLowerCase();
+
+    for(let i = 0; i < str.length; i++){
+      let char = str[i];
+      let isVowel = false;
+
+      // Kiểm tra có phải nguyên âm không
+      for(let j = 0; j < vowel.length; j++){
+        if(char === vowel[j]){
+          isVowel = true;
+          break;
+        }
+      }
+
+      if(isVowel){
+        // Kiểm tra đã có trong result chưa
+        let isDuplicate = false;
+        for(let k = 0; k < result.length; k++){
+          if(char === result[k]){
+            isDuplicate = true;
+            break;
+          }
+        }
+
+        // Nếu chưa có thì thêm vào result
+        if(isDuplicate === false){
+          result.push(char);
+        }
+      }
+    }
+
+    return result;
+  }
+
+  let string = prompt("Nhập chuỗi: ");
+  alert("Chuỗi đã nhập: " + string);
+  alert("Độ dài chuỗi: " + string.length);
+
+  let output = checkString(string);
+  alert(`[${output.join(", ")}]`);
+</script>
+</body>
+</html>
