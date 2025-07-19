@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 3</title>
+</head>
+<body>
+<script>
+    function checkSum(arr) {
+        let result = [];
+        for (let i = 0; i < arr.length - 2; i++) {
+            let newArr = [];
+            if((arr[i] + arr[i + 1]) === arr[i + 2]) {
+                newArr.push(arr[i]);
+                newArr.push(arr[i + 1]);
+            } else {
+                continue;
+            }
+            result.push(newArr);
+        }
+
+        // Sắp xếp tăng dần theo tổng của 2 phần tử
+        for (let i = 0; i < result.length - 1; i++) {
+            for (let j = 0; j < result.length - 1 - i; j++) {
+                let sum1 = result[j][0] + result[j][1];
+                let sum2 = result[j + 1][0] + result[j + 1][1];
+                if (sum1 > sum2) {
+                    let temp = result[j];
+                    result[j] = result[j + 1];
+                    result[j + 1] = temp;
+                }
+            }
+        }
+        return result;
+    }
+
+    // let n;
+    // do {
+    //     n = +prompt("Nhap so phan tu lon hon 3: ");
+    // } while (n <= 3 || isNaN(n));
+    //
+    // let array = [];
+    // for (let i = 0; i < n; i++) {
+    //     let element = +prompt(`Nhap phan tu thu ${i}: `);
+    //     array.push(element);
+    // }
+    let array = [1,5,6,11,9,20,8,0,8,1];
+    alert(array);
+    alert(array.length);
+
+    result = checkSum(array);
+    let output = "[";
+    for (let i = 0; i < result.length; i++) {
+        output += `[${result[i][0]}, ${result[i][1]}]`;
+        if (i !== result.length - 1){
+            output += ",";
+        }
+    }
+    output += "]";
+    alert(output);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 4</title>
+</head>
+<body>
+<h2>Danh ba dien thoai</h2>
+
+<button type="button" onclick="createPhoneNumber()">Thêm số điện thoại</button>
+
+<br><br>
+
+<table id="phoneTable" border="1" cellpadding="8">
+    <tr>
+        <th>STT</th>
+        <th>Số điện thoại</th>
+        <th>Tên chủ danh bạ</th>
+        <th>Địa chỉ</th>
+        <th>Chức năng</th>
+    </tr>
+</table>
+
+<script>
+    class PhoneNumber {
+        constructor(number, name, address) {
+            this._number = number;
+            this._name = name;
+            this._address = address;
+        }
+
+        get number() {
+            return this._number;
+        }
+
+        set number(value) {
+            this._number = value;
+        }
+
+        get name() {
+            return this._name;
+        }
+
+        set name(value) {
+            this._name = value;
+        }
+
+        get address() {
+            return this._address;
+        }
+
+        set address(value) {
+            this._address = value;
+        }
+    }
+
+    class ManagePhoneNumber {
+        constructor() {
+            this.phoneNumber = [];
+        }
+
+        create(number) {
+            this.phoneNumber.push(number);
+            this.read();
+        }
+
+        read() {
+            let table = document.getElementById("phoneTable");
+            let content = `
+                            <tr>
+                                <th>STT</th>
+                                <th>Số điện thoại</th>
+                                <th>Tên chủ danh bạ</th>
+                                <th>Địa chỉ</th>
+                                <th>Chức năng</th>
+                            </tr>
+                            `;
+            for (let i = 0; i < this.phoneNumber.length; i++) {
+                let phone = this.phoneNumber[i];
+                content += `
+                            <tr>
+                                <td>${i + 1}</td>
+                                <td>${phone.number}</td>
+                                <td>${phone.name}</td>
+                                <td>${phone.address}</td>
+                                <td>
+                                    <button onclick="deletePhoneNumber()">Xóa số điện thoại</button>
+                                </td>
+                            </tr>
+                            `;
+            }
+            table.innerHTML = content;
+        }
+
+        delete(index) {
+            this.phoneNumber.splice(index, 1);
+            this.read();
+        }
+    }
+
+    let manager = new ManagePhoneNumber();
+    let selectedIndex = -1;
+
+    function createPhoneNumber() {
+        let number = prompt("Nhap so dien thoai:");
+        let name = prompt("Nhap chu danh ba:");
+        let address = prompt("Nhap dia chi:");
+        if (number && name && address) {
+            let newPhoneNumber = new PhoneNumber(number, name, address);
+            manager.create(newPhoneNumber);
+        } else {
+            alert("Hãy nhập đủ thông tin");
+        }
+    }
+
+    function deletePhoneNumber(index) {
+        manager.delete(index);
+        selectedIndex = -1;
+    }
+</script>
+</body>
+</html>

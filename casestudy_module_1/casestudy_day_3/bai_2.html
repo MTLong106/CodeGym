@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 2</title>
+</head>
+<body>
+<script>
+    function createWord(str) {
+        let array = str.split(" ");
+        let result = '';
+        if (array.length === 1) {
+            alert("Chuoi chi co mot ki tu nen khong can viet tat");
+            result = array;
+            return result;
+        } else{
+            for (let i = 0; i < array.length; i++) {
+                let arr = array[i].split("");
+                result += arr[0].toUpperCase();
+            }
+            return result;
+        }
+    }
+
+    let string;
+    do {
+        string = prompt("Nhap vao mot chuoi: ");
+    } while (string === "");
+    alert(string);
+
+    alert(createWord(string));
+</script>
+
+</body>
+</html>

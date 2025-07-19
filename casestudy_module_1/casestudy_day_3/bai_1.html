@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 1</title>
+</head>
+<body>
+<script>
+    let n;
+    do {
+        n = +prompt("Nhap so phan tu la boi cua 3: ");
+    } while ((n % 3 !== 0) || n > 15 || n < 3 || isNaN(n));
+
+    let array = [];
+    for (let i = 0; i < n; i++) {
+        let element = +prompt(`Nhap phan tu thu ${i}: `);
+        array.push(element);
+    }
+    alert(array);
+    alert(array.length);
+
+    let count = 0;
+    for (let i = 0; i < array.length - 2; i += 3) {
+        let a = array[i];
+        let b = array[i + 1];
+        let c = array[i + 2];
+        if ((a * a === b * b + c * c) ||
+            (b * b === a * a + c * c) ||
+            (c * c === a * a + b * b)) {
+            count++;
+        }
+    }
+    if(count === array.length / 3){
+        alert("OK");
+    } else {
+        alert("NO");
+    }
+
+</script>
+</body>
+</html>
