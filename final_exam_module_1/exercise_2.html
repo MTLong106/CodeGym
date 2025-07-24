@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 2</title>
+</head>
+<body>
+<script>
+    function checkUpperCase(str) {
+        let array = str.split("");
+        let count = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] >= 'A' && array[i] <= 'Z') {
+                count++;
+            }
+        }
+        if (count !== 0) {
+            return count;
+        } else {
+            return false;
+        }
+    }
+
+    let string;
+    do {
+        string = prompt("Input a string: ");
+    } while (string === "" || string === " ");
+    alert(string);
+
+    let result = checkUpperCase(string);
+    if (result === false) {
+        alert("The String is not contain upper char");
+    } else {
+        alert(result);
+    }
+
+</script>
+</body>
+</html>

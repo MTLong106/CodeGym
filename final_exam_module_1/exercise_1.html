@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 1</title>
+</head>
+<body>
+<script>
+    let n;
+    do {
+        n = +prompt("Input the length of the array");
+    } while (isNaN(n) || n > 20 || n <= 0);
+    let array = [];
+    for (let i = 0; i < n; i++) {
+        let element = +prompt(`Input the element ${i}: `);
+        array.push(element);
+    }
+
+    alert(array);
+    alert(array.length);
+
+    let sumEven = 0;
+    let sumOdd = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] % 2 === 0) {
+            sumEven += array[i];
+        } else {
+            sumOdd += array[i];
+        }
+    }
+
+    alert(sumEven - sumOdd);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 4</title>
+</head>
+<body>
+<h2></h2>
+
+<button type="button" onclick="createPhone()">Thêm điện thoại</button>
+
+<br><br>
+
+<table id="phoneTable" border="1" cellpadding="8">
+    <tr>
+        <th>STT</th>
+        <th>Mã điện thoại</th>
+        <th>Tên</th>
+        <th>Hãng sản xuất</th>
+        <th>Giá</th>
+    </tr>
+</table>
+
+<script>
+    class Phone {
+        constructor(id, name, brand, price) {
+            this._id = id;
+            this._name = name;
+            this._brand = brand;
+            this._price = price;
+        }
+
+        get id() {
+            return this._id;
+        }
+
+        set id(value) {
+            this._id = value;
+        }
+
+        get name() {
+            return this._name;
+        }
+
+        set name(value) {
+            this._name = value;
+        }
+
+        get brand() {
+            return this._brand;
+        }
+
+        set brand(value) {
+            this._brand = value;
+        }
+
+        get price() {
+            return this._price;
+        }
+
+        set price(value) {
+            this._price = value;
+        }
+    }
+
+    class ManagePhone {
+        constructor() {
+            this.newPhone = [];
+        }
+
+        create(id) {
+            this.newPhone.push(id);
+            this.read();
+        }
+
+        read() {
+            let table = document.getElementById("phoneTable");
+            let content = `
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã điên thoại</th>
+                                <th>Tên</th>
+                                <th>Hãng sản xuất</th>
+                                <th>Giá</th>
+                            </tr>
+                            `;
+            for (let i = 0; i < this.newPhone.length; i++) {
+                let phone = this.newPhone[i];
+                content += `
+                            <tr>
+                                <td>${i + 1}</td>
+                                <td>${phone.id}</td>
+                                <td>${phone.name}</td>
+                                <td>${phone.brand}</td>
+                                <td>${phone.price}</td>
+                            </tr>
+                            `;
+            }
+            table.innerHTML = content;
+        }
+    }
+
+    let manager = new ManagePhone();
+
+    function createPhone() {
+        let id = prompt("Nhập mã điện thoại:");
+        let name = prompt("Nhập tên:");
+        let brand = prompt("Nhập hãng sản xuất:");
+        let price = prompt("Nhập giá:");
+        if (id && name && brand && price) {
+            let newPhone = new Phone(id, name, brand, price);
+            manager.create(newPhone);
+        } else {
+            alert("Hãy nhập đủ thông tin");
+        }
+    }
+</script>
+</body>
+</html>
