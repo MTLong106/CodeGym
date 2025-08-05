@@ -25,7 +25,7 @@
     let string;
     do {
         string = prompt("Nhap vao mot chuoi: ");
-    } while (string === "");
+    } while (string === "" || string === " ");
     alert(string);
 
     alert(createWord(string));
